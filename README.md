@@ -15,6 +15,10 @@ El Catálogo digital de 4,000 imágenes originales de la Fototeca Antica / Colec
 
 Nuestra Fototeca es una Institución privada, no lucrativa, de grandes propósitos: contribuir a la importante tarea de rescatar, conservar, catalogar, investigar y difundir un gran fragmento del antiguo patrimonio cultural fotográfico de México.
 
+https://catalogo.fototecaantica.net/
+
+https://fototecaantica.net/
+
 
 Poética Visual, Zared Lamadrid Morales y Zabdiel Pérez Florentino, que crearon y configuraron, tanto la Base de Datos que contiene este Acervo, como la página WEB que ha puesto en línea este Catálogo digital. Mi profundo agradecimiento hacia ellos, que siempre nos manifestaron una profesional y amistosa solidaridad, y la mejor de las capacidades y disposiciones.
 
