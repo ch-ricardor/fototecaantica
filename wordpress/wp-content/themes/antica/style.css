@@ -1,11 +1,16 @@
 /*
-Theme Name: Antica
-Theme URI: http://poeticavisual.com
-Description: Fototeca Antica
-Version: 1
-Author: Zabdiel
-Author URI: http://poeticavisual.com
+    Theme Name: Antica Store
+    Theme URI: http://poeticavisual.com
+    Description: Fototeca Antica
+    Version: 1.2
+    Author: Zabdiel
+    Author URI: http://poeticavisual.com
+    Author: Ricardo
 */
+
+/*------------------------------------*\
+    MAIN
+\*------------------------------------*/
 
 /* RESET */
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {margin: 0; padding: 0; border: 0; outline: 0; font-size: 11px; vertical-align: baseline; background: none; }body {line-height: 12px; }ol, ul {list-style: none; }blockquote, q {quotes: none; }blockquote:before, blockquote:after,q:before, q:after {content: ''; content: none; }:focus {outline: 0; }ins {text-decoration: none; }del {text-decoration: line-through; }table {border-collapse: collapse; border-spacing: 0; } * {padding: 0px; margin: 0px; border: 0px; }
@@ -16,7 +21,7 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 }
 
 body {
-	min-width: 1380px;
+	/* min-width: 1380px; */ /* RRE 2020 */
 	color: #fff;
 	font-size: 14px;
 	line-height:12px;
@@ -33,8 +38,14 @@ a:hover { text-decoration: none; }
 .center { text-align: center; }
 .clear { clear: both; }
 
-img.alignright { margin: 3px 0 10px 20px; display: inline; }
-img.alignleft { margin: 3px 20px 10px 0; display: inline; }
+img.alignright { 
+    /* margin: 3px 0 10px 20px; */ /* RRE Margin can't be used with inline */
+    display: inline; 
+}
+img.alignleft { 
+    /* margin: 3px 20px 10px 0; */ /* RRE Margin can't be used with inline */
+    display: inline; 
+}
 img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 img.centered { display: block; margin-left: auto; margin-right: auto; }
 
@@ -42,8 +53,148 @@ img.centered { display: block; margin-left: auto; margin-right: auto; }
 .alignright { float: right; }
 .aligncenter { text-align:center; }
 
+/*--------------------------------------------------------------
+2.0 Accessibility
+--------------------------------------------------------------*/
+
+/* Text meant only for screen readers. */
+
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+    background-color: #f1f1f1;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    color: #21759b;
+    display: block;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000; /* Above WP toolbar. */
+}
+
+
 .clear { clear:both; }
 
+/*--------------------------------------------------------------
+4.0 Clearings RRE 2020 from twentyseventeen Widgets
+--------------------------------------------------------------*/
+
+/*
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.entry-footer:before,
+.entry-footer:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after,
+.nav-links:before,
+.nav-links:after,
+.pagination:before,
+.pagination:after,
+.comment-author:before,
+.comment-author:after,
+*/
+.widget-area:before,
+.widget-area:after,
+.widget:before,
+.widget:after /*,
+.comment-meta:before,
+.comment-meta:after */ {
+    content: "";
+    display: table;
+    table-layout: fixed;
+}
+
+/*
+.clear:after,
+.entry-content:after,
+.entry-footer:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after,
+.nav-links:after,
+.pagination:after,
+.comment-author:after,
+*/
+.widget-area:after,
+.widget:after /*,
+.comment-meta:after*/ {
+    clear: both;
+}
+
+/* Post Navigation */
+
+.post-navigation {
+    font-weight: 800;
+    margin: 3em 0;
+}
+
+.post-navigation .nav-links {
+    padding: 1em 0;
+}
+
+.nav-subtitle {
+    background: transparent;
+    color: #767676;
+    display: block;
+    font-size: 11px;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1818em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+
+.nav-title {
+    color: #333;
+    font-size: 15px;
+    font-size: 0.9375rem;
+}
+
+.post-navigation .nav-next {
+    margin-top: 1.5em;
+}
+
+.nav-links .nav-previous .nav-title .nav-title-icon-wrapper {
+    margin-right: 0.5em;
+}
+
+.nav-links .nav-next .nav-title .nav-title-icon-wrapper {
+    margin-left: 0.5em;
+}
+
+
+/*------------------------------------*\
+    STRUCTURE
+\*------------------------------------*/
+
+
+/* wrap */
 #wrap {
 	max-width:1280px;
 	margin:0px auto 0px;
@@ -51,13 +202,20 @@ img.centered { display: block; margin-left: auto; margin-right: auto; }
 	background:none;
 }
 
+.wrapper {
+	max-width:1280px;
+	width:95%;
+	margin:0 auto;
+	position:relative;
+}
+
 header {
     background:#A02140;
 	height:25px;
-	width: 100%;
+	/* width: 100%; Duplicated */
     margin: 0px 0px 0px 0px;
-	padding: 7px 0px 10px 0px;
-	border-top: 10px solid #fff;
+	padding: 7px 0px 10px 0px; /* RRE Using Height | Width with padding can make elements larger than you expect */
+	border-top: 10px solid #fff; /* RRE Using Height with border-top can make elements larger than you expect */
 	width: 100%;
 	position: relative;
 }
@@ -81,15 +239,15 @@ header {
 			}
 
 		#nav li {
-			float: left;
+			/* float: left; */ /* RRE Float can't be used with inline-block */
 			display: inline-block;
 			margin: 0px;
 			padding: 0px;
 			}
 		
 		#nav li:last-child {
-			float: right;
-			display: inline-block;
+			float: right; /* RRE Float can't be used with inline-block */
+			/* display: inline-block; */
 			margin: 0px;
 			padding: 0px;
 			}
@@ -122,7 +280,7 @@ header {
 			width: 180px;
 			float: none;
 			border: none;
-			padding: 6px 5px;
+			padding: 6px 5px; /* RRE Using Height | Width with padding can make elements larger than you expect */
 			}
 			
 		#nav li li a:hover, #nav li li a:active {
@@ -145,16 +303,26 @@ header {
 			left: auto;
 			}
 
+/**
+ * RRE 2020 Changing definitions
+ * Normally IDs are used to be idetified in a js script, (Dynamic scripts)
+ * converted to class instead of a IDs (Static CSS definition )
+ *
+ * footer changed to <footer id="footer"> instead of <div id="footer">
+ *
+ * TODO: Remove # Definitions after Tests.
+ *
+ */
 
 #footer {
-	padding:20px 0px 35px 10px;
-	width: 45%;
+	padding:20px 0px 35px 10px; /* RRE Using Height | Width with padding can make elements larger than you expect */
+	width: 95%;
 	height:auto;
 	display: block;
 	float: left;
 	}
 	
-	#logo-uno {
+	.logo-uno {
 		background:url(images/logo-uno.png) no-repeat top left;
 		width:136px;
 		height:86px;
@@ -163,7 +331,7 @@ header {
 		margin-right: 20px;
 		margin-bottom: 15px;
 		}
-	#logo-dos {
+	.logo-dos {
 		background:url(images/logo-dos.png) no-repeat bottom left;
 		width:198px;
 		height:61px;
@@ -173,14 +341,14 @@ header {
 		margin-top: 26px;
 		margin-bottom: 15px;
 		}
-	#logo-tres {
+	.logo-tres {
 		background:url(images/logo-tres.png) no-repeat bottom left;
 		width:173px;
 		height:28px;
 		margin-top: 40px;
 		margin-bottom: 20px;
 		display:block;
-		float:left;
+		float:right;
 		}
 	
 	#footer p {
@@ -197,26 +365,36 @@ header {
 	height: 210px;
 	background: url(images/logo.png) no-repeat top center;
 	margin-top:35px; 
-	float: right;
-	display: inline-block;
+	float: right; /* Float can't be used with inline-block */
+	/* display: inline-block; */
 	position: relative;
+}
+
+/*------------------------------------*\
+    PAGES
+\*------------------------------------*/
+.home {
+   overflow:hidden;
 }
 
 #home {
 	width: 670px;
 	height: 670px;
 	background: #F9F6F5 url(images/home.jpg) no-repeat center center;
-	padding: 20px;
+	padding: 20px; /* RRE Using Height | Width with padding can make elements larger than you expect */
 	margin-top:-160px; 
 	display: inline-block;
-	float: left;
+	/* float: left; */ /* Float can't be used with inline-block */
 	background-size: 95%;
 }
 
 #texto-home {
 	width: 420px;
-	padding: 16px 16px 0px 16px;
-	margin: 99px 55px 10px 0px;
+	padding: 16px 16px 0px 16px; /* RRE Using Height | Width with padding can make elements larger than you expect */
+	/*
+    margin: 99px 55px 10px 0px;
+    */
+	margin: 15px 55px 10px 0px;
 	background: #d3cac2;
 	border-bottom: 1px solid #333;
 	display: block;
@@ -249,10 +427,10 @@ header {
 #textos, #textoslong {
 	width: 420px;
 	height: 600px;
-	padding: 20px 20px 0px 20px;
+	padding: 20px 20px 0px 20px; /* RRE Using Height | Width with padding can make elements larger than you expect */
 	margin: 50px 55px 30px 0px;
 	background: #d3cac2;
-	border-bottom: 1px solid #333;
+	border-bottom: 1px solid #333; /* RRE Using Height with border-bottom can make elements larger than you expect */
 	color: #333;
 	display: block;
 	float: right;
@@ -389,7 +567,7 @@ header {
   text-transform: uppercase;
   color: #111;
   background-color: #9B928D;
-  border: solid 1px #DFDED9;
+  border: solid 1px #DFDED9; /* RRE Using Height | Width with padding can make elements larger than you expect */
   background-size: 100%;
   }
 
@@ -398,6 +576,9 @@ header {
   background-color: #CCC7C0;
   }
 
+/*--------------------------------------------------------------
+10.0 Links
+--------------------------------------------------------------*/
 
 .a1 { background: url(images/cli-1.jpg) top center no-repeat; }
 .a2 { background: url(images/cli-2.jpg) top center no-repeat; }
@@ -413,36 +594,378 @@ header {
 .f5 { background: url(images/cat-5.jpg) top center no-repeat; }
 .f6 { background: url(images/cat-6.jpg) top center no-repeat; }
 
+/* Hover effects */
+
+.widget a,
+.widget_authors a strong {
+    -webkit-box-shadow: inset 0 -1px 0 rgba(15, 15, 15, 1);
+    box-shadow: inset 0 -1px 0 rgba(15, 15, 15, 1);
+    -webkit-transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
+    transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
+    transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
+    transition: color 80ms ease-in, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
+}
+
+.widget .widget-title a,
+.widget ul li a {
+    -webkit-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 1);
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 1);
+    text-decoration: none;
+    -webkit-transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
+    transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
+    transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
+    transition: color 80ms ease-in, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
+}
+
+.widget a:focus,
+.widget a:hover,
+.widget .widget-title a:focus,
+.widget .widget-title a:hover,
+.widget ul li a:focus,
+.widget ul li a:hover {
+    color: #000;
+    -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 3px 0 rgba(0, 0, 0, 1);
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 3px 0 rgba(0, 0, 0, 1);
+}
+
+/* Fixes linked images */
+.widget a img {
+    -webkit-box-shadow: 0 0 0 8px #fff;
+    box-shadow: 0 0 0 8px #fff;
+}
+
+/*--------------------------------------------------------------
+15.0 Widgets
+--------------------------------------------------------------*/
+
+#secondary {
+    padding: 1em 0 2em;
+}
+
+.widget {
+    padding-bottom: 3em;
+}
+
+h2.widget-title {
+    color: #222;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.1818em;
+    margin-bottom: 1.5em;
+    text-transform: uppercase;
+}
+
+.widget-title a {
+    color: inherit;
+}
+
+/* widget forms */
+
+.widget select {
+    width: 100%;
+}
+
+
+/* widget lists */
+
+.widget ul {
+    list-style: none;
+    margin: 0;
+}
+
+.widget ul li,
+.widget ol li {
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 0.5em 0;
+}
+
+.widget:not(.widget_tag_cloud) ul li + li {
+    margin-top: -1px;
+}
+
+.widget ul li ul {
+    margin: 0 0 -1px;
+    padding: 0;
+    position: relative;
+}
+
+.widget ul li li {
+    border: 0;
+    padding-left: 24px;
+    padding-left: 1.5rem;
+}
+
+/* Widget lists of links */
+
+.widget_top-posts ul li ul,
+.widget_rss_links ul li ul,
+.widget-grofile ul.grofile-links li ul,
+.widget_pages ul li ul,
+.widget_meta ul li ul {
+    bottom: 0;
+}
+
+.widget_nav_menu ul li li,
+.widget_top-posts ul li,
+.widget_top-posts ul li li,
+.widget_rss_links ul li,
+.widget_rss_links ul li li,
+.widget-grofile ul.grofile-links li,
+.widget-grofile ul.grofile-links li li {
+    padding-bottom: 0.25em;
+    padding-top: 0.25em;
+}
+
+.widget_rss ul li {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+/* Widget markup */
+
+.widget .post-date,
+.widget .rss-date {
+    font-size: 0.81em;
+}
+
+/* Text widget */
+
+.widget_text {
+    word-wrap: break-word;
+}
+
+.widget_text ul {
+    list-style: disc;
+    margin: 0 0 1.5em 1.5em;
+}
+.widget_text ol {
+    list-style: decimal;
+}
+
+.widget_text ul li,
+.widget_text ol li {
+    border: none;
+}
+
+.widget_text ul li:last-child,
+.widget_text ol li:last-child {
+    padding-bottom: 0;
+}
+
+.widget_text ul li ul {
+    margin: 0 0 0 1.5em;
+}
+
+.widget_text ul li li {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.widget_text ol li {
+    list-style-position: inside;
+}
+
+.widget_text ol li + li {
+    margin-top: -1px;
+}
+
+/* RSS Widget */
+
+.widget_rss .widget-title .rsswidget:first-child {
+    float: right;
+}
+
+.widget_rss .widget-title .rsswidget:first-child:hover {
+    background-color: transparent;
+}
+
+.widget_rss .widget-title .rsswidget:first-child img {
+    display: block;
+}
+
+.widget_rss ul li {
+    padding: 2.125em 0;
+}
+
+.widget_rss ul li:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.widget_rss li .rsswidget {
+    font-size: 22px;
+    font-size: 1.375rem;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.widget_rss .rss-date,
+.widget_rss li cite {
+    color: #767676;
+    display: block;
+    font-size: 10px;
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.widget_rss .rss-date {
+    margin: 0.5em 0 1.5em;
+    padding: 0;
+}
+
+.widget_rss .rssSummary {
+    margin-bottom: 0.5em;
+}
+
+/* Contact Info Widget */
+
+.widget_contact_info .contact-map {
+    margin-bottom: 0.5em;
+}
+
+/* Gravatar */
+
+.widget-grofile h4 {
+    font-size: 16px;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+/* Recent Posts widget */
+
+.widget_recent_entries .post-date {
+    display: block;
+}
+
+/* Tag cloud widget */
+
+.tagcloud ul li {
+    float: left;
+    border-top: 0;
+    border-bottom: 0;
+    padding: 0;
+    margin: 4px 4px 0 0;
+}
+
+.tagcloud,
+.widget_tag_cloud,
+.wp_widget_tag_cloud {
+    line-height: 1.5;
+}
+
+.widget .tagcloud a,
+.widget.widget_tag_cloud a,
+.wp_widget_tag_cloud a {
+    border: 1px solid #ddd;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    display: block;
+    padding: 4px 10px 5px;
+    position: relative;
+    -webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+    width: auto;
+    word-wrap: break-word;
+    z-index: 0;
+}
+
+.widget .tagcloud a:hover,
+.widget .tagcloud a:focus,
+.widget.widget_tag_cloud a:hover,
+.widget.widget_tag_cloud a:focus,
+.wp_widget_tag_cloud a:hover,
+.wp_widget_tag_cloud a:focus {
+    border-color: #bbb;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+/* Calendar widget */
+
+.widget_calendar th,
+.widget_calendar td {
+    text-align: center;
+}
+
+.widget_calendar tfoot td {
+    border: 0;
+}
+/* Calendar widget */
+
+.widget_calendar th,
+.widget_calendar td {
+    text-align: center;
+}
+
+.widget_calendar tfoot td {
+    border: 0;
+}
+
+/* Gallery widget */
+
+.gallery-columns-5 .gallery-caption,
+.gallery-columns-6 .gallery-caption,
+.gallery-columns-7 .gallery-caption,
+.gallery-columns-8 .gallery-caption,
+.gallery-columns-9 .gallery-caption {
+    display: none;
+}
+
+
+
 /*********************************/
 #header2 {
-	background: #DFDED9 url(images/header2.png) center bottom no-repeat;
+    /* 
+    background: #DFDED9 url(images/header2.png) center bottom no-repeat; 
 	height: 245px;
-	overflow: hidden;
-	padding-bottom: 15px;
-	}
+    */
+    /* RRE More space for Images */
+    background: #DFDED9 url(images/header2.png) right bottom no-repeat;
+    background-size: 50%;
+    height: 145px;
+    overflow: hidden;
+    padding-bottom: 15px; /* RRE Using Height | Width with padding can make elements larger than you expect */
+    }
 
 #header2 h1 {
-	margin-left: 70px;
-	margin-bottom: 35px;
-	font-size: 80px;
-	line-height: 80px;
-	color: #A02140;
-	font-weight: normal;
-	text-transform: uppercase;
-	height: 80px;
-	overflow: hidden;
+    margin-left: 70px;
+    margin-bottom: 35px;
+    /*
+    font-size: 80px;
+    line-height: 80px;
+    height: 80px;
+    */
+    font-size: 40px; /* RRE More space for Images */
+    line-height: 40px;
+    height: 40px;
+    color: #A02140;
+    font-weight: normal;
+    text-transform: uppercase;
+    overflow: hidden;
 }
 
 #header2 h1.sans { font-family: 'Amiri', serif; }
 
 #header2 h2 {
-	padding-top: 60px;
-	font-size: 40px;
-	text-transform: uppercase;
-	font-weight: normal;
-	letter-spacing: 5px;
-	color: #A02140;
-	margin-bottom: 23px;
+    /*
+    padding-top: 60px;
+    font-size: 40px;
+    margin-bottom: 23px;
+    */
+    padding-top: 30px; /* RRE More space for the Images */
+    font-size: 20px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: 5px;
+    color: #A02140;
 }
 
 #header2 a {
@@ -461,8 +984,8 @@ header {
 }
 
 #buscar {
-	display: inline-block;
-	float: left;
+	/* display: inline-block; */
+	float: left; /* RRE Float can't be used with inline-block */
 	margin-top: -12px;
 }
 
@@ -473,8 +996,8 @@ header {
 	height: 205px;
 	display: inline-block;
 	margin: 5px;
-	padding: 10px;
-	border: 1px solid #DFDED9;
+	padding: 10px; /* RRE Using Height | Width with padding can make elements larger than you expect */
+	border: 1px solid #DFDED9; /* RRE Using Height | Width with border can make elements larger than you expect */
 	font-family: 'Amiri', serif;
 	text-align: center;
 	font-size: 16px;
@@ -495,18 +1018,22 @@ header {
 
 .referenciaizq {
 	display: inline-block;
-	float: left;
+	/* float: left; */ /* RRE Float can't be used with inline-block */
 	text-align: left;
 	margin-left: 10px;
 	max-width: 50%;
 }
+
+/*------------------------------------*\
+    IMAGES
+\*------------------------------------*/
 
 img.miniaturachica {
 	max-height: 185px;
 	margin:0px;
 	padding:0px;
 	display: inline-block;
-	float: left;
+	/* float: left; */ /* RRE Float can't be used with inline-block */
 	text-align: center;
 	border: 2px solid #DFDED9;
 	}
@@ -517,7 +1044,7 @@ img.miniaturaancha {
 	margin:0px;
 	padding:0px;
 	text-align: center;
-	border: 2px solid #DFDED9;
+	border: 2px solid #DFDED9;  /* RRE Using Height | Width with border can make elements larger than you expect */
 	}
 
 img.miniatura {
@@ -531,7 +1058,7 @@ img.miniatura {
 	}
 
 img.miniaturareversoalta {
-	max-width: auto;
+  /* max-width: auto; */ /* RRE Expected (<lenght> | <percentage> | <content-sizing> | none ) */
 	max-height:380px;
 	margin:0px 10px 10px 0px;
 	padding: 10px;
@@ -539,7 +1066,7 @@ img.miniaturareversoalta {
 	}
 img.miniaturareversoancha {
 	max-width:400px;
-	max-height:auto;
+  /* max-height: auto; */ /* RRE Expected (<lenght> | <percentage> | <content-sizing> | none ) */
 	margin:0px 10px 10px 0px;
 	padding: 10px;
 	border: 1px solid #DFDED9;
@@ -581,7 +1108,7 @@ img.none {
 	width: 45%;
 	display: inline-block;
 	margin: 0px 20px 20px 0px;
-	float: left;
+	/* float: left; */ /* RRE Float can't be used with inline-block */
 }
 
 .bloque a {
@@ -647,9 +1174,9 @@ p.campo {
 	}
 
 #iniciales li {
-	float: left;
+	/* float: left; */ /* RRE Float can't be used with inline-block */
 	display: inline-block;
-	margin: 0px;
+	/* margin: 0px; Duplicated */
 	padding: 0px;
 	min-width: 10px;
 	margin: 10px;
@@ -683,7 +1210,7 @@ p.campo {
 	}
 
 #autores li {
-	float: left;
+	/* float: left; */ /* RRE Float can't be used with inline-block */
 	display: inline-block;
 	width: 23%;
 	height: 30px;
@@ -734,7 +1261,7 @@ p.campo {
     display: none;
     position: fixed;
     z-index: 1000;
-    padding-top: 80px;
+    padding-top: 80px; /* RRE Using Height | Width with padding can make elements larger than you expect */
     left: 0;
     top: 0;
     width: 100%;
@@ -786,6 +1313,10 @@ p.campo {
     cursor: pointer;
 }
 
+/*------------------------------------*\
+    RESPONSIVE
+\*------------------------------------*/
+
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 768px){
     .modal-content {
@@ -830,8 +1361,8 @@ p.campo {
 	width:87%;
 	font-size:14px;
 	font-family: 'Amiri', serif;
-	outline:none;
-	padding:15px 10px 15px 40px;
+	outline:none; /* RRE Outlines should only be modified using :focus */
+	padding:15px 10px 15px 40px; /* RRE Using Height | Width with padding can make elements larger than you expect */
 	float:left;
 	margin:0px;
 	border-bottom:1px solid #333;
@@ -847,7 +1378,7 @@ p.campo {
 	
 
 	.input.buscar {
-		padding: 7px 8px;
+		padding: 7px 8px; /* RRE Using Height | Width with padding can make elements larger than you expect */
 		font-size:14px;
 		border: none;
 		display: inline-block;
@@ -879,3 +1410,76 @@ p.campo {
 	}
 .boton:hover { background: #A02140; color: #fff; }
 
+/*------------------------------------*\
+    WORDPRESS CORE
+\*------------------------------------*/
+
+.alignnone {
+	margin:5px 20px 20px 0;
+}
+.aligncenter,
+div.aligncenter {
+	display:block;
+	margin:5px auto 5px auto;
+}
+.alignright {
+	float:right;
+	margin:5px 0 20px 20px;
+}
+.alignleft {
+	float:left;
+	margin:5px 20px 20px 0;
+}
+a img.alignright {
+	float:right;
+	margin:5px 0 20px 20px;
+}
+a img.alignnone {
+	margin:5px 20px 20px 0;
+}
+a img.alignleft {
+	float:left;
+	margin:5px 20px 20px 0;
+}
+a img.aligncenter {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+.wp-caption {
+	background:#FFF;
+	border:1px solid #F0F0F0;
+	max-width:96%;
+	padding:5px 3px 10px;
+	text-align:center;
+}
+.wp-caption.alignnone {
+	margin:5px 20px 20px 0;
+}
+.wp-caption.alignleft {
+	margin:5px 20px 20px 0;
+}
+.wp-caption.alignright {
+	margin:5px 0 20px 20px;
+}
+.wp-caption img {
+	border:0 none;
+	height:auto;
+	margin:0;
+	max-width:98.5%;
+	padding:0;
+	width:auto;
+}
+.wp-caption .wp-caption-text,
+.gallery-caption {
+	font-size:11px;
+	line-height:17px;
+	margin:0;
+	padding:0 4px 5px;
+}
+.sticky {
+
+}
+.bypostauthor {
+
+}

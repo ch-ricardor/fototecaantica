@@ -5,19 +5,28 @@ Template Name: Archivo
 ?>
 <?php get_header(); ?>
 
-<body style="background: none;">
-
-<?php include(TEMPLATEPATH . '/menu.php'); ?>
-
 <?php
-	if ( empty($ver) ) { $ver = $_POST['ver']; } 
-	if ( !empty($_GET['ver']) ) { $ver = $_GET['ver'] ; }
+    // RRE 2020
+    if ( isset($_GET['ver']) ) {
+        $ver = $_GET['ver'];
+    } else {
+        if (  isset($_POST['ver']) ) {
+            $ver = $_POST['ver'];
+        } else { $ver = '';
+        }
+    }
+	// if ( empty($ver) ) { $ver = $_POST['ver']; }
+	// if ( !empty($_GET['ver']) ) { $ver = $_GET['ver'] ; }
 
-	$cat = $_GET['cat'];
-	$ini = $_GET['ini']; //inicial
+	// RRE 2020
+	$cat = isset($_GET['cat']) ? $_GET['cat'] : '';
+	$ini = isset($_GET['ini']) ? $_GET['ini'] : ''; //inicial
 
-	$tr = $_GET['tr']; // total de registros
-	$tp = $_GET['tp']; // total de paginas
+    // RRE 2020
+	// $tr = $_GET['tr']; // total de registros
+	// $tp = $_GET['tp']; // total de paginas
+	$tr = isset($_GET['tr']) ? $_GET['tr'] : NULL; // total de registros
+	$tp = isset($_GET['tp']) ? $_GET['tp'] : 0; // total de paginas
 
 	if ($cat=='fondos') $categoria = "Fondo";
 	if ($cat=='autores') $categoria = "Autor";
@@ -37,28 +46,37 @@ Template Name: Archivo
 	}
 
 	if ( $cat=='buscar' ) $pag = 'buscar'; else $pag = 'archivo';
-	$url = get_settings('home')."/".$pag."/?cat=".$cat."&ver=".$ver."&tr=".$num_total_registros."&tp=".$total_paginas;
+	$url = get_option('home','')."/".$pag."/?cat=".$cat."&ver=".$ver."&tr=".$num_total_registros."&tp=".$total_paginas;
 ?>
 
 <div id="header2">
-<div id="wrap">
+<div class="wrap">
 	<h2><?php echo $categoria; ?></h2>
 	<h1><?php if ($cat == "autores") echo getAutor($ver); elseif ( $ver=='Estereoscópica' ) { echo 'Vistas Estereoscópicas'; } elseif ($ver=='') { echo '&nbsp;'; } else echo $ver; ?></h1>
 
 <?php if ( $cat=='buscar' ) { ?>
 	<div id="buscar">
-		<form method="POST" action="<?php echo get_settings('home')."/archivo/?cat=buscar"; ?>">
+		<form method="POST" action="<?php echo get_option('home','')."/archivo/?cat=buscar"; ?>">
 			<input type="text" name="ver" value="<?php echo $ver; ?>" class="input buscar" />
 			<input type="submit" name="submit" value="Buscar" class="boton" />
 		</form>
-	</div>
+	</div><!-- #buscar -->
 <?php } else { ?>
-	<a href="<?php echo get_settings('home'). "/". $cat; ?>/">Menú anterior</a>
+	<a href="<?php echo get_option('home',''). "/". $cat; ?>/">Menú anterior</a>
 <?php }  ?>
 
 <div id="pagenavi">
 
 <?php // pagenavi
+
+/**
+ *  RRE 2020
+ *		No existia condicion si no hay registros
+*/
+if ( abs($num_total_registros) == 0 and $ver<>'' ) {
+	$inicio = 0;
+}
+
 if ( abs($num_total_registros) > 0 and $ver<>'' ) {	
 	$pagina = false;
 
@@ -95,15 +113,19 @@ if ( abs($num_total_registros) > 0 and $ver<>'' ) {
 
 } // fin paginavi
 ?>
-</div>
+</div><!-- #pagenavi -->
 
-</div><!-- fin wrap -->
-</div>
+</div><!-- .wrap -->
+</div><!-- #header2 -->
 
 <div id="content">
-<div id="wrap">
+<div class="wrap">
 
-<?php if ( $_REQUEST['action'] == 'buscar' or $ver<>'' ) { ?>
+<?php
+    // RRE 2020
+	$theAction = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
+    if ( $theAction == 'buscar' or $ver<>'' ) { 
+?>
 
 <div id="fichas">
 
@@ -119,31 +141,31 @@ if ( abs($num_total_registros) > 0 and $ver<>'' ) {
 	<?php
 	$autor = $resultado->autor; if ( $autor=='No identificado' ) $autor = ''; 
 	$inventario = $resultado->inventario; 
-	$url = get_settings('home').'/miniaturas/'. $inventario .'.jpg';
+	$url = get_option('home','').'/miniaturas/'. $inventario .'.jpg';
 	if ( @getimagesize( $url ) ) {
 		list($ancho, $alto, $tipo, $atrib) = getimagesize( $url );
 		$proporcion = $ancho/$alto;
 		if ($proporcion>.7) { $formatoimagen = 'miniaturaancha'; $referencia = 'referenciacentro'; }
 		else { $formatoimagen = 'miniaturachica'; $referencia = 'referenciaizq'; }
-	} else { 
-		$url = get_settings('home').'/pendiente.jpg'; 
+	} else {
+		$url = get_option('home','').'/pendiente.jpg';
 		$formatoimagen = 'miniaturaancha'; $referencia = 'referenciacentro';
 	} ?>
-		<a href="<?php echo get_settings('home'); ?>/ficha/?page=ft/fichas.php&cat=<?php echo $cat; ?>&ver=<?php echo $ver; ?>&ficha=<?php echo $inventario; ?>"><?php echo '<img src="'. $url .'" class="'.$formatoimagen.'">'; ?>
+		<a href="<?php echo get_option('home',''); ?>/ficha/?page=ft/fichas.php&cat=<?php echo $cat; ?>&ver=<?php echo $ver; ?>&ficha=<?php echo $inventario; ?>"><?php echo '<img src="'. $url .'" class="'.$formatoimagen.'">'; ?>
 	<?php if ($proporcion>.7) { echo '<div style="clear:both;"></div>'; } echo '<div class="'. $referencia .'">'.$autor; 
 	if ($referencia=='referenciaizq' and $autor!='' ) echo '<br>';
 	if ($referencia=='referenciacentro' and $autor!='' ) { echo ' - '; }
-	
+
 	echo $inventario; ?></div></a>
-</div>
+</div><!-- #fotitos -->
 
 <?php } ?>
 
-</div> <!-- fin fichas -->
+</div> <!-- #fichas -->
 
 <?php } // fin action buscar ?>
 
-</div> <!-- fin wrap -->
-</div> <!-- fin content -->
+</div> <!-- .wrap -->
+</div> <!-- #content -->
 
-<?php get_footer(); ?>
+<?php get_footer();

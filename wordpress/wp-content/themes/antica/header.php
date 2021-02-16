@@ -1,60 +1,71 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es-MX">
+
 <head profile="http://gmpg.org/xfn/11">
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-22727092-33"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <title>Fototeca Antica<?php if ( is_single() or is_page() or is_archive() ) { wp_title(); } ?></title>
 
-  gtag('config', 'UA-22727092-33');
-</script>
+    <link rel="Shortcut Icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico" type="image/x-icon" />
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-<title>Fototeca Antica<?php if ( is_single() or is_page() or is_archive() ) { wp_title(); } ?></title>
-<meta name="title" content="Fototeca Antica<?php if ( is_single() or is_page() or is_archive() ) { wp_title(); } ?>" />
-<meta name="description" content="<?php bloginfo('description'); ?>"/>
-<meta name="robots" content="index,follow" />
-<meta name="author" content="Zared y Zabdiel" />
-<meta name="generator" content="PoeticaVisual" />
-<meta name="owner" content="Jorge Carretero Madrid" />
-<meta name="copyright" content="Fototeca Antica A.C." />
+    <meta name="title" content="Fototeca Antica<?php if ( is_single() or is_page() or is_archive() ) { wp_title(); } ?>" />
+    <meta name="description" content="<?php bloginfo('description'); ?>"/>
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Zared y Zabdiel" />
+    <meta name="generator" content="PoeticaVisual" />
+    <meta name="owner" content="Jorge Carretero Madrid" />
+    <meta name="copyright" content="Fototeca Antica A.C." />
 
-<meta property="og:locale" content="es_MX" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Fototeca Antica" />
-<meta property="og:title" content="Fototeca Antica" />
-<meta property="og:description" content="<?php bloginfo('description'); ?>" />
-<meta property="og:url" content="<?php bloginfo('url'); ?>" />
-<meta property="og:image" content="http://catalogo.fototecaantica.net/Catalogo-Fototeca-Antica.jpg" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Fototeca Antica" />
+    <meta property="og:title" content="Fototeca Antica" />
+    <meta property="og:description" content="<?php bloginfo('description'); ?>" />
+    <meta property="og:url" content="<?php bloginfo('url'); ?>" />
+    <meta property="og:image" content="http://catalogo.fototecaantica.net/Catalogo-Fototeca-Antica.jpg" />
 
-<link rel="Shortcut Icon" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.ico" type="image/x-icon" />
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url')?>" media="screen">
+    <!-- WP -->
+    <?php
+        // RRE 2020 - WP Recommendation
+        // Step 1. Change bloginfo to get_template_directory_uri()
+        // Step 2. Todo: Remove JQuery nivo slider Dependencies
 
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url')?>/responsive-1024.css" media="screen">
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url')?>/responsive.css" media="screen">
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url')?>/ztable.css" media="screen">
+        // NOTE: Ommited by the designer, calls are necessary to run other Plugins
+        //  EED plugin js and css
+        //  XMLRPC pingback bloginfo('pingback_url') (Removed from the Original Header)
+        //  Global site tag gtag.js included if installed on the Site (Removed from the Original Header)
+        wp_head();
+    ?>
 
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url')?>/styleprint.css" media="print" >
 
-<?php if ( is_home() ) { ?>
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url')?>/css/style.css" media="screen" />
-	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery-1.3.2.js"></script>
-	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.color.js"></script>
-<?php } else { ?>
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url')?>/css/nivo-slider.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url')?>/css/nivo-default.css" media="screen" />
-	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery-1.9.0.min.js"></script>
-	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.nivo.slider.js"></script>
-<?php } ?>
+    <!-- Custom Styles Moved to Functions -->
 
-<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+<?php if ( is_home() ) {
+
+  	/* <!-- RRE 2020 -->
+       <!-- Styles moved to functions -->
+      <!-- JQuery / color removed -->
+    */
+ } else {
+    // <!-- Nivo-Slider Styles moved to functions -->
+ } ?>
+
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
 
 </head>
 
+<?php
+    /**
+        RRE 2020 Adaptation add WordPress functionalities
+        Changing original design
+    */
+?>
+
+<body <?php body_class();?>
+        oncontextmenu="return false;" onmousedown="return false;" onselectstart="return false;">
+
+    <?php if (! is_home() ) : get_template_part('template-parts/header/header','menu'); endif; ?>

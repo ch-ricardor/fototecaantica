@@ -1,10 +1,8 @@
 <?php get_header(); ?>
-<body>
 
-<?php include(TEMPLATEPATH . '/menu.php'); ?>
 <?php if (is_user_logged_in()) { ?>
 <div id="content">
-<div id="wrap">
+<div class="wrap">
 
 	<div id="textos">
 
@@ -18,7 +16,7 @@
 	</div>
     
 
-</div> <!-- fin wrap -->
-</div> <!-- fin content -->
+</div> <!-- .wrap -->
+</div> <!-- #content -->
 <?php } else { include(TEMPLATEPATH . '/homeshort.php'); } ?>
-<?php } get_footer(); ?>
+<?php get_footer(); ?>

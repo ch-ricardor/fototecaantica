@@ -4,9 +4,6 @@ Template Name: Ficha
 */
 ?>
 <?php get_header(); ?>
-<body style="background: none;">
-
-<?php include(TEMPLATEPATH . '/menu.php'); ?>
 
 <?php
 	$cat = $_GET['cat'];
@@ -19,16 +16,16 @@ Template Name: Ficha
 ?>
 
 <div id="header2">
-	<div id="wrap">
+	<div class="wrap">
 		<h2><?php echo $categoria; ?></h2>
 		<h1><?php if ($cat == "autores") echo getAutor($ver); else echo $ver; ?></h1>
 
-		<a href="<?php echo get_settings('home'). "/archivo/?page=ft/fichas.php&cat=". $cat ."&ver=". $ver; ?>">Menú anterior</a>
-	</div>
-</div>
+		<a href="<?php echo get_option('home',''). "/archivo/?page=ft/fichas.php&cat=". $cat ."&ver=". $ver; ?>">Menú anterior</a>
+	</div><!-- .wap -->
+</div><!-- #header2 -->
 
 <div id="content">
-<div id="wrap">
+<div class="wrap">
 
 <div id="fichas">
 
@@ -37,31 +34,58 @@ Template Name: Ficha
 		$i=1;
 		foreach ($all_resultado as $resultado) {
 		?>
-		
+
 	<div id="foto" oncontextmenu="return false;" onmousedown="return false;" onselectstart="return false;">
 	<?php
-		$inventario = $resultado->inventario; 
-		$url = get_settings('home').'/miniaturas/'. $inventario .'.jpg';
-		$url2 = get_settings('home').'/miniaturas-r/'. $inventario .'-r.jpg';
+		$inventario = $resultado->inventario;
 
-		if ( @getimagesize( $url ) ) {
-			list($ancho, $alto, $tipo, $atrib) = getimagesize( $url ); 
-			$proporcion = $ancho/$alto; if ($proporcion>1.1) $formatoimagen = 'ancha'; else $formatoimagen = 'alta';
-		} else { 
-			$url = get_settings('home').'/pendiente.jpg'; 
+		/**
+		 *  RRE 2020 Test if the Fotography file exists
+		*/
+		$url = get_template_directory_uri() . '/images/' . 'pendiente.jpg';
+		$url2 = '';
+
+		if ( file_exists( ABSPATH.'/miniaturas/'. $inventario .'.jpg' ) ) {
+			$url = get_option('home','').'/miniaturas/'. $inventario .'.jpg';
 		}
-		if ( @getimagesize( $url2 ) ) {
-			list($ancho2, $alto2, $tipo2, $atrib2) = getimagesize( $url2 ); 
-			$proporcion2 = $ancho2/$alto2; if ($proporcion2>1.1) $formatoimagen2 = 'ancha'; else $formatoimagen2 = 'alta';
+
+		/**
+		 * RRE 2020
+		 *  Fotografia
+		 *  Fotography directory - WordpressDirectory/miniaturas/
+		*/
+		if ( @getimagesize( $url ) ) {
+			list($ancho, $alto, $tipo, $atrib) = getimagesize( $url );
+			$proporcion = $ancho/$alto; if ($proporcion>1.1) $formatoimagen = 'ancha'; else $formatoimagen = 'alta';
 		}
 	?>
 		<img id="myImg" src="<?php echo $url; ?>" class="miniatura">
-	
-	<?php if ( $ancho2==null ) { echo '<img id="myImg 2" >'; } else { ?>
-		<img id="myImg 2" src="<?php echo $url2; ?>" class="miniaturareverso<?php echo $formatoimagen2; ?>">
-	 <?php } ?>
+	<?php
+		/**
+		 * RRE 2020
+		 *  Reverso de la fotografia
+		 *  Reverse of the fotography directory - WordpressDirectory/miniaturas-r/
+		*/
+		if ( file_exists( ABSPATH.'/miniaturas-r/'. $inventario .'-r.jpg' ) ) {
+			$url2 = get_option('home','').'/miniaturas-r/'. $inventario .'-r.jpg';
 
-	</div>
+			if ( @getimagesize( $url2 ) ) {
+				list($ancho2, $alto2, $tipo2, $atrib2) = getimagesize( $url2 );
+				$proporcion2 = $ancho2/$alto2; if ($proporcion2>1.1) $formatoimagen2 = 'ancha'; else $formatoimagen2 = 'alta';
+
+				if ( $ancho2==null ) {
+					echo '		<img id="myImg 2" >';
+				} else {
+			        echo '		<img id="myImg 2" src="' . $url2 . '" class="miniaturareverso'. $formatoimagen2. '">';
+				}
+			}
+		} else {
+			echo '		<img id="myImg 2" >';
+		}
+
+	?>
+
+	</div><!-- #foto -->
 
 	<div id="ficha">
 
@@ -73,7 +97,7 @@ Template Name: Ficha
 
 		<div class="bloque">
 			<p class="campo">Autor</p><?php $autor = $resultado->autor; $autorslug = $resultado->autorslug; ?>
-			<a href="<?php echo get_settings('home'); ?>/archivo/?page=ft/fichas.php&cat=autores&ver=<?php echo $autorslug; ?>"><?php echo $autor; ?></a>
+			<a href="<?php echo get_option('home',''); ?>/archivo/?page=ft/fichas.php&cat=autores&ver=<?php echo $autorslug; ?>"><?php echo $autor; ?></a>
 
 			<p class="campo">Función</p>
 			<?php echo $resultado->funcion; ?>
@@ -86,7 +110,7 @@ Template Name: Ficha
 
 			<p class="campo">Lugar de la imagen visual</p>
 			<?php echo $resultado->lugar; ?>
-		</div>
+		</div><!-- .bloque -->
 
 		<div class="bloque">
 			<p class="campo">Proceso fotográfico</p>
@@ -116,25 +140,35 @@ Template Name: Ficha
 			<p class="campo">Nombre del personaje</p>
 			<?php echo $personaje; } ?>
 
-	</div>
+            <div><?php
+                    // RRE 2020 - EDD Cart
+                    echo strtolower($inventario) . do_shortcode('[purchase_link sku="' .
+                        strtolower($resultado->topografica) .'" text="Purchase" style="button" color="blue"]') ;
+
+                ?>
+                <a href="<?php echo get_option('home',''); ?>/downloads/<?php echo strtolower($resultado->inventario); ?>">
+                    <?php echo __('Comprar') . ' ' . $resultado->topografica; ?></a>
+            </div>
+
+	</div><!-- #ficha -->
 
 	<div id="myModal" class="modal" oncontextmenu="return false;" onmousedown="return false;" onselectstart="return false;">
 	  <span class="close">&times;</span>
 	  <img class="modal-content <?php echo $formatoimagen; ?>" id="img01">
-	</div>
+	</div><!-- #myModal .modal -->
 
 	<div id="myModal 2" class="modal" oncontextmenu="return false;" onmousedown="return false;" onselectstart="return false;">
 	  <span class="close 2">&times;</span>
 	  <img class="modal-content <?php echo $formatoimagen2; ?>" id="img02">
-	</div>
+	</div><!-- #myModal 2 .modal -->
 
 	<div style="clear:both;"></div>
 
 	<?php } ?>
 
 </div>
-</div> <!-- fin wrap -->
-</div> <!-- fin content -->
+</div> <!-- .ewrap -->
+</div> <!-- #content -->
 
 <script>
 // Get the modal
@@ -146,7 +180,7 @@ img.onclick = function(){
     modalImg.src = this.src;
 }
 var span = document.getElementsByClassName("close")[0];
-span.onclick = function() { 
+span.onclick = function() {
     modal.style.display = "none";
 }
 
@@ -158,10 +192,10 @@ img.onclick = function(){
     modalImg.src = this.src;
 }
 var span = document.getElementsByClassName("close 2")[0];
-span.onclick = function() { 
+span.onclick = function() {
     modal.style.display = "none";
 }
 
 </script>
 
-<?php get_footer(); ?>
+<?php get_footer();

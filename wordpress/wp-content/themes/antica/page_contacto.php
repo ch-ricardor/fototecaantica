@@ -4,12 +4,9 @@ Template Name: Contacto
 */
 ?>
 <?php get_header(); ?>
-<body>
-
-<?php include(TEMPLATEPATH . '/menu.php'); ?>
 
 <div id="content">
-<div id="wrap">
+<div class="wrap">
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -30,8 +27,8 @@ Template Name: Contacto
         <?php $foto4 = get_post_custom_values("foto4"); if (isset($foto4[0])) { ?>
         <img src="<?php bloginfo('stylesheet_directory'); ?>/images/slider/<?php echo get_post_meta($post->ID, "foto4", true); ?>" >
         <?php } ?>
-    </div>
-</div> <!-- fin wrapper -->
+    </div><!-- #slider .nivoSlider -->
+</div> <!-- .slider-wrapper -->
 
 	<div id="textoslong">
 
@@ -41,7 +38,7 @@ Template Name: Contacto
                                 &nextpagelink=<div class="sig">English</div>
                                 &previouspagelink=<div class="atr">Español</div>
                                 '); ?>
-        </div> <!-- fin paginacion -->
+        </div> <!-- #paginacion -->
 
 		<!--<h1><?php //the_title(); ?></h1>-->
 
@@ -63,17 +60,13 @@ Template Name: Contacto
             <?php do_action('comment_form', $post->ID); ?>
         </form>
 
-	</div>
+	</div><!-- #textoslong -->
 
-<?php endwhile; endif; ?> 
+<?php endwhile; endif; ?>
 
-</div> <!-- fin wrap -->
-</div> <!-- fin content -->
+</div> <!-- .wrap -->
+</div> <!-- #content -->
 
-<script type="text/javascript">
-    $(window).load(function() {
-        $('#slider').nivoSlider();
-    });
-    </script>
+<!-- RRE 2020 Slider equeued in functions.php -->
 
-<?php get_footer(); ?>
+<?php get_footer();

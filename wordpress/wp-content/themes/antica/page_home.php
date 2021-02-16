@@ -2,30 +2,28 @@
 /*
 Template Name: Home
 */
-?>
-<?php get_header(); ?>
-<body>
-
-<?php include(TEMPLATEPATH . '/menu.php'); ?>
+get_header(); ?>
 
 <div id="content" oncontextmenu="return false;" onmousedown="return false;" onselectstart="return false;">
-<div id="wrap">
+    <div class="wrap">
 
-<div id="logo"></div>
+        <div id="logo">
+        </div><!-- #logo -->
 
-<div id="home"></div>
+        <div id="home">
+        </div><!-- #home -->
 
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-	
-    <div id="texto-home">
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+            <div id="texto-home">
 
 
-		<?php the_content();?>
+                <?php the_content();?>
 
-	</div>
+            </div><!-- #texto-home -->
 
-<?php endwhile; endif; ?> 
-</div> <!-- fin wrap -->
-</div> <!-- fin content -->
+        <?php endwhile; endif; ?> 
+    </div> <!-- .wrap -->
+</div> <!-- #content -->
 
-<?php get_footer(); ?>
+<?php get_footer();
