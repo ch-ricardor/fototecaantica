@@ -1,0 +1,188 @@
+#fotoa, #fotob, #fotoc, #fotod, #fotoe, #fotof {
+    position:absolute;
+    left:100%;
+    top:45%;
+    width:800px;
+    height:600px;
+    margin-left:-400px;
+    margin-top:-300px;
+    z-index:6;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+#fotoa { background:transparent url(../images/intro/banner-1.jpg) no-repeat center center; }
+#fotob { background:transparent url(../images/intro/banner-2.jpg) no-repeat center center; }
+#fotoc { background:transparent url(../images/intro/banner-3.jpg) no-repeat center center; }
+#fotod { background:transparent url(../images/intro/banner-4.jpg) no-repeat center center; }
+#fotoe { background:transparent url(../images/intro/banner-5.jpg) no-repeat center center; } 
+#fotof { background:transparent url(../images/intro/banner-6.jpg) no-repeat center center; }
+
+#fotohome {
+    position:absolute;
+    left:50%;
+    top:40%;
+    width:700px;
+    height:698px;
+    margin-left:-350px;
+    margin-top:-349px;
+    z-index:6;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+#fotohome { background:transparent url(../images/home.jpg) no-repeat center center; }
+
+#fondo, #rojo {
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    width:100%;
+}
+
+#rojo {
+    background:#ffffff;
+    z-index:1;
+}
+
+#fondo {
+    background:#ffffff;
+    z-index:1;
+}
+
+#cuadro {
+    position:absolute;
+    left:30%;
+    top:100%;
+    width:600px;
+    height:600px;
+    margin-left:-300px;
+    margin-top:-300px;
+    border: 1px solid #fff;
+    z-index:6;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+
+#vertical {
+    position:absolute;
+    left:90%;
+    top:100%;
+    width:1px;
+    height:600px;
+    margin-left:0px;
+    margin-top:-300px;
+    border-left: 1px solid #fff;
+    z-index:6;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+
+#horizontal {
+    position:absolute;
+    left:0%;
+    top:45%;
+    width:300px;
+    height:1px;
+    margin-left:-150px;
+    margin-top:0px;
+    border-top: 1px solid #fff;
+    z-index:6;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+
+#circulo {
+    position:absolute;
+    left:50%;
+    top:45%;
+    width: 400px;
+    height: 400px;
+    margin-left:-400px;
+    margin-top:-200px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    z-index:6;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+
+#punto {
+    position:absolute;
+    left:70%;
+    top:0%;
+    width: 20px;
+    height: 20px;
+    margin-left:-10px;
+    margin-top:-10px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background: #fff;
+    z-index:6;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+
+#titulo {
+    position:absolute;
+    left:50%;
+    top:40%;
+    width:484px;
+    height:200px;
+    margin-left:-242px;
+    margin-top:-200px;
+    background:transparent url(../images/logo.png) no-repeat top center;
+    background-size: 100%;
+    z-index:6;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+
+#logo {
+    position:absolute;
+    left:50%;
+    top:40%;
+    width:201px;
+    height:133px;
+    margin-left:-100px;
+    margin-top:0px;
+    background:transparent url(../images/intro/logo.png) no-repeat top center;
+    background-size: 100%;
+    z-index:6;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+
+#epigrafe {
+    position:absolute;
+    left:50%;
+    top:40%;
+    width:441px;
+    height:133px;
+    margin-left:-221px;
+    margin-top:0px;
+    background:transparent url(../images/intro/epigrafe.png) no-repeat top center;
+    background-size: 100%;
+    z-index:6;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+
+#saltar {
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    width:200px;
+    height:50px;
+    background:transparent url(../images/intro/saltar.png) no-repeat center center;
+    background-size: 80%;
+    z-index:6;
+    outline:none;
+    cursor:pointer;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
