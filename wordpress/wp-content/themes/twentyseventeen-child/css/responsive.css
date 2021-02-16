@@ -1,0 +1,535 @@
+/**
+  
+ Version:      1.0.0
+ 
+*/
+/* Extra Large Devices - Default in main css */
+
+/* Large Devices */
+@media screen and (max-width: 1199.98px) { body { max-width: 1200px; margin:0px auto; } }
+/* Large Devices */
+@media screen and (max-width: 1023.98px) { body { max-width: 1024px; margin:0px auto;} }
+/* Medium Devices */
+@media screen and (max-width: 991.98px)  { body { max-width: 992px;  margin:0px auto; } }
+/* Small Devices */
+@media screen and (max-width: 767.98px)  { body { max-width: 768px;  margin:0px auto; } }
+/* Exra Small Devices */
+@media screen and (max-width: 575.98px)  { body { max-width: 100%;  margin:0px auto; } }
+
+/*
+    Devices 1024
+*/
+@media screen and (max-width: 1023.98px) { 
+
+    /*------------------------------------*\
+        STRUCTURE Antica
+    \*------------------------------------*/
+
+    #antica-logo {
+
+    }
+
+    nav a {
+        margin:0px;
+    }
+    
+    /*------------------------------------*\
+        Menu Normal
+    \*------------------------------------*/
+
+    #antica-menu li a {
+        font-size: 0.95em;
+    }
+    #antica-menu li li a, #antica-menu li li a:link, #antica-menu li li a:visited {
+        width: 170px;
+        padding: 6px; /* RRE Using Height | Width with padding can make elements larger than you expect */
+    }
+} /* End (max-width: 1023.98px) */
+
+/* 
+    Medium devices 992 
+*/
+@media screen and (max-width: 991.98px)  { 
+
+    /*------------------------------------*\
+        STRUCTURE Antica
+    \*------------------------------------*/
+
+	#antica-home {
+		margin-top: 155px;
+	}
+
+	#antica-logo {
+		margin: 15px;
+		width: 90%;
+		right: 0px;
+		float: left;
+		background-size: 80%;
+	}
+
+	#texto-home {
+		position: relative;
+		margin-left: 35px;
+		top: 15px;
+		width: 90%;
+	}
+
+    /*------------------------------------*\
+        Menu Normal
+    \*------------------------------------*/
+
+    #antica-menu li a {
+        padding: 8px 0px;
+        margin:0px 10px 0px 10px;
+    }
+
+    #antica-menu li li a, #antica-menu li li a:link, #antica-menu li li a:visited {
+        width: 150px;
+        padding: 8px; /* RRE Using Height | Width with padding can make elements larger than you expect */
+    }
+
+	.has-sidebar:not(.error404) #primary {
+		width: 68%;
+	}
+
+	.has-sidebar #secondary {
+		padding-top: 20px;
+		width: 29%;
+	}    
+
+    /*------------------------------------*\
+        FICHA
+    \*------------------------------------*/
+    #ficha .registro.ocultar {
+      display: none;
+    }
+    #ficha .registro.siver {
+      display: block;
+    }
+
+    #ficha .bloque {
+      width: 95%;
+    }
+
+    /*--------------------------------------------------------------
+        13.4 Posts
+    --------------------------------------------------------------*/
+
+    /* Post Formats */
+
+    /* Post Navigation */
+
+    .post-navigation {
+        width: 70%;
+        /* clear: both; */
+        padding: unset;
+    }
+
+    .post-navigation .nav-links {
+        padding: 1em 0;
+    }
+
+    .post-navigation .nav-previous {
+        float: left;
+        width: 48%;
+        padding: 0.7em;
+    }
+
+    .post-navigation .nav-next {
+        width: 48%;
+        padding: 0.7em;
+    }
+
+    /*------------------------------------*\
+        ARCHIVO - AUTORES
+    \*------------------------------------*/
+    #header2 {
+        background-size: 35%;
+    }
+
+	#header2 h1 {
+        font-size: 1.8em;
+        line-height: 1.9em;
+	}
+
+	#header2 a {
+		font-size: 0.7em;
+	}
+
+    #header2 .header2-col-left {
+        width: 100% !important;
+    }
+
+   /*------------------------------------*\
+        EDD - Easy Digital Downloads
+    \*------------------------------------*/
+	.edd-column-page {
+		width: 55%;
+	}
+
+	.edd-column-page h2 {
+		font-size: 1.1em;
+	}
+
+	.edd_downloads_list.edd_download_columns_3 .edd_download,
+	.edd_downloads_list.edd_download_columns_4 .edd_download,
+	.edd_downloads_list.edd_download_columns_5 .edd_download,
+	.edd_downloads_list.edd_download_columns_6 .edd_download {
+		padding: 20px;
+	}
+
+	.edd_downloads_list.edd_download_columns_3 .edd_download,
+	.edd_downloads_list.edd_download_columns_4 .edd_download,
+	.edd_downloads_list.edd_download_columns_5 .edd_download,
+	.edd_downloads_list.edd_download_columns_6 .edd_download,
+	.entry-content .edd_downloads_list.edd_download_columns_6 .edd_download {
+		float: none !important;
+		display: inline-block;
+		width: 49.5% !important;
+		padding: 20px;
+	}
+
+	.entry-content .edd_downloads_list.edd_download_columns_3 .edd_download {
+		font-size: 1em;
+	}
+
+	.edd_download_columns_4 .edd_download .edd_download_title,
+	.edd_download_columns_5 .edd_download .edd_download_title,
+	.edd_download_columns_6 .edd_download .edd_download_title {
+		font-size: 1.25em;
+		margin-bottom: 15px;
+	}
+
+
+} /* End (max-width: 991.98px) */
+
+
+/*
+    Small Devices 768
+*/
+@media screen and (max-width: 767.98px) { 
+    /*------------------------------------*\
+        STRUCTURE Antica
+    \*------------------------------------*/
+    header {
+      height: 40px;
+      border: none;
+    }
+
+	body {
+		background-image: none;
+	}
+
+    body.slider-background {
+      background-image: none;
+    }
+
+    nav a {
+        margin:0px;
+    }
+
+    /*------------------------------------*\
+        Menu Collapsed
+    \*------------------------------------*/
+
+    .control-menu {
+        background-color: transparent;
+        background-position: center center;
+        border: 1px solid #fff; /* RRE Using Height with border can make elements larger than you expect */
+        display: block;
+        float: right;
+        height: 30px;
+        width: 30px;
+    }
+    .control-menu a span {
+        display: inline-block;
+        height: 100%;
+        text-indent: -9999px;
+        width: 30px;
+    }
+
+    .control-menu .close {
+        background-image: url("images/close-menu.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        top: 8px;
+        right: 1px;
+        display: none;
+    }
+
+    .control-menu .open {
+        background-image: url("images/open-menu.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: block;
+    }
+
+    ul#antica-menu {
+      width: 160px;
+      clear: both;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.4s ease-in-out 0s, background-color 2s ease 0s; 
+    }
+
+    #navigation:target ul#antica-menu {
+      background: #A02140 none repeat scroll 0 0;
+      height: 367px;
+      transition: height 0.4s ease-in-out 0s, background-color 0.9s ease 0s; 
+    }
+
+    #navigation .close { 
+       display:none;
+    }
+            
+    #navigation:target .open {
+      display: none;
+    }
+
+    #navigation:target .close {
+      display: block;
+    }
+
+    #antica-menu {
+      top: -37px;
+      display: block;
+      position: relative;
+      left: -8px;
+    }
+
+    #antica-menu ul a:hover {
+      background-color:#000;
+      color:#fff;
+      -webkit-transition: color, background-color 0.2s linear;
+    }
+
+    #antica-menu li { 
+      width: 210px;
+      /* border-bottom:1px solid #FFF; */ /* RRE Using Height with border-bottom can make elements larger than you expect */
+      /* height: 35px; */
+      padding-top: 10px; /* RRE Using Height with padding-top can make elements larger than you expect */
+    }
+
+    #antica-menu li:last-child {
+      border:none;
+      padding-top: 10px;
+      float: left;
+    } 
+
+    #antica-menu li a {
+        padding: 8px 0px;
+        margin:0px 10px 0px 10px;
+        font-size: 0.85em;
+    }
+
+    #antica-menu li li a, #antica-menu li li a:link, #antica-menu li li a:visited {
+      background: #888;
+      margin: 0px;
+      padding: 10px; /* RRE Using Height | Width with padding can make elements larger than you expect */
+      line-height: 16px;
+      width: auto;
+      /* height: 21px; */
+    }
+
+    #antica-menu li li a:hover, 
+	#antica-menu li li a:active {
+        background: #6a0f28;
+    }
+
+    .column-slider {
+        width: 95%;
+		float: left;
+    }
+    .column-slider.sticky {
+        position: relative;
+    }
+    
+    #textoslong.column-page,
+    #textos.column-page {
+        width: 95%;
+    }
+
+	/*
+    	Footer
+	*/
+
+	/**
+ 	 * Updated from the original #footer -> #footer-antica
+ 	 * 
+ 	 */
+
+	/*--------------------------------------------------------------
+		13.4 Posts
+	--------------------------------------------------------------*/
+
+	/* Post Formats */
+
+	/* Post Navigation */
+
+	.post-navigation {
+    	width: 95%;
+    	clear: both;
+		padding: unset;
+	}
+
+	.post-navigation .nav-links {
+		padding: 1em 0;
+	}
+
+	.post-navigation .nav-previous {
+		float: left;
+		width: 95%;
+		padding: 0.7em;
+	}
+
+	.post-navigation .nav-next {
+		width: 95%;
+		padding: 0.7em;
+	}
+
+	/*------------------------------------*\
+    	ARCHIVO - AUTORES
+	\*------------------------------------*/
+	#header2 {
+		background-size: 65%;
+	}
+
+	#header2 h1 {
+		margin-left: 20px;
+		margin-bottom: 0.5em;
+		font-size: 1.3em;
+		line-height: 1.4em;
+		height: unset;
+	}
+
+	#header2 h2 {
+		letter-spacing: unset;
+		font-size: 1.2em;
+	}
+
+	#header2 .header2-col-left {
+		width: 100% !important; 
+	}
+
+	#header2 a {
+		padding: 2px;
+	}
+
+	#header2 .button-back {
+		padding-top: unset;
+	}
+
+	.autorestexto {
+		width: 95%;
+	}
+
+	.autores li {
+		width: 45%;
+		height: auto;
+	}
+
+	.autores p {
+		width: 55%;
+	}
+
+    /*------------------------------------*\
+        CATALOGO
+    \*------------------------------------*/
+
+	#cuadros li {
+		width: 300px;
+		height: auto;
+		margin: 15px;
+	}
+
+	#cuadros li a.cuadro {
+		width: 300px;
+		height: 320px;
+		line-height: 590px;
+	}
+
+
+
+    /*------------------------------------*\
+        FICHAS
+    \*------------------------------------*/
+
+    #ficha .registro.ocultar {
+      display: none;
+    }
+    #ficha .registro.siver {
+      display: none;
+    }
+
+	#fotitos {
+		width: 95%;
+	}
+
+	/*------------------------------------*\
+    	FICHA
+	\*------------------------------------*/
+
+	#fichas {
+  		margin-top: 10px;
+	}
+	
+	#fichas .modal {
+		width: 100%;
+		height: 95%;
+		top: unset;
+		padding-top: 60px;
+	}
+
+	#fichas .close {
+		top: 18px;
+		display: unset;
+	}
+
+	#foto {
+		/* width: 48%; */
+		margin-top: 15px;
+		display: block;
+		float: left;
+		height: auto;
+		clear: both;
+	}
+
+	#ficha {
+		width: 95%;
+		margin: 5px;
+		float: left;
+		clear: both;
+	}
+
+	#ficha .bloque a {
+		line-height: 80%;
+	}
+
+
+    /*------------------------------------*\
+        EDD - Easy Digital Downloads
+    \*------------------------------------*/
+	.has-sidebar:not(.error404) #primary {
+		width: 100%;
+	}
+
+	.edd-column-page {
+		width: 95%;
+	}
+
+	.has-sidebar #secondary {
+		clear: left;
+		float: left;
+		width: 90%;
+		margin: 5px;
+	}
+
+	.edd_downloads_list[class*="edd_download_columns_"] .edd_download,
+	.edd_downloads_list.edd_download_columns_3 .edd_download,
+	.edd_downloads_list.edd_download_columns_4 .edd_download,
+	.edd_downloads_list.edd_download_columns_5 .edd_download,
+	.edd_downloads_list.edd_download_columns_6 .edd_download {
+		width: 100% !important;
+	}
+
+} /* End (max-width: 767.98px) */
