@@ -1,4 +1,6 @@
-# fototeca Antica
+# Fototeca Antica
+
+Tema utilizable en Wordpress.
 
 Este Catálogo se realizó con apoyo del Fondo Nacional para la Cultura y las Artes a través del Programa de Fomento a Proyectos y Coinversiones Culturales 2016.
 
